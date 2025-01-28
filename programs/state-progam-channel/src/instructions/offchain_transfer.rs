@@ -5,7 +5,7 @@ use crate::state::Channel;
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct OffChainTransferData {  
     pub amount: u64,
-    pub nonce: u64,
+    pub nonce: u64,// ensures every transaction is processed only once
     pub signature: [u8; 64],
 }
 
