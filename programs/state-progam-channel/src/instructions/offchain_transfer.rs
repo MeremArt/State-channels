@@ -1,5 +1,6 @@
 use anchor_lang::prelude::*;
 use crate::state::Channel;
+use crate::errors::ErrorCode;
 
 // Off-chain transaction (signed message)
 #[derive(AnchorSerialize, AnchorDeserialize)]
@@ -58,12 +59,3 @@ pub fn offchain_transfer(
     Ok(())
 }
 
-#[error_code]
-pub enum ErrorCode {
-    #[msg("Invalid nonce")]
-    InvalidNonce,
-    #[msg("Insufficient funds")]
-    InsufficientFunds,
-    #[msg("Arithmetic overflow")]
-    Overflow,
-}
