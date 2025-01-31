@@ -2,7 +2,7 @@ use anchor_lang::prelude::*;
 use crate::state::Channel;
 use crate::errors::ErrorCode;
 
-// Off-chain transaction (signed message)
+
 #[derive(AnchorSerialize, AnchorDeserialize)]
 pub struct OffChainTransferData {  
     pub amount: u64,
@@ -42,7 +42,7 @@ pub fn offchain_transfer(
     
     solana_program::program::invoke(
         &ix,
-        &[]  // No accounts needed for ed25519 verification
+        &[]  
     )?;
 
     // Update balances after verification
